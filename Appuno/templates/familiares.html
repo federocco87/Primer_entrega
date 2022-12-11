@@ -1,0 +1,18 @@
+{% extends "padre.html" %}
+
+{% load static %}
+
+{% block titulo %}
+<h1> ESTE ES EL TITULO DE FAMILIARES</h1>
+
+{% endblock %}
+
+{% block contenido_que_cambia %}
+<!-- <h2> Nombre = {{ familiar1.nombre }} Edad = {{ familiar1.edad }} Fecha de Nacimiento = {{ familiar1.fnac }}</h2>
+<h2> Nombre = {{ familiar2.nombre }} Edad = {{ familiar2.edad }} Fecha de Nacimiento = {{ familiar2.fnac }}</h2>
+<h2> Nombre = {{ familiar3.nombre }} Edad = {{ familiar3.edad }} Fecha de Nacimiento = {{ familiar3.fnac }}</h2> -->
+{% for familiar in familiares %}
+    <h2> Nombre = {{ familiar.nombre }} Edad = {{ familiar.edad }} Fecha de Nacimiento = {{ familiar.fnac }}</h2>    
+{% endfor %}
+
+{% endblock %}
