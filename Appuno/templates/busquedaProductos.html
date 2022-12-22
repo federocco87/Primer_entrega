@@ -1,0 +1,28 @@
+{% extends "padre.html" %}
+
+{% load static %}
+
+{% block titulo %}
+<h1> Busqueda de Productos</h1>
+
+{% endblock %}
+
+{% block contenido_que_cambia %}
+
+<h3> {{ mensaje }} </h3>
+
+<form action="{% url 'buscar' %}" method="GET"> {% csrf_token %}
+
+
+
+    <input type="number" name="codigo" id="codigo" placeholder="INSERTE CODIGO">
+
+    <input type="submit" value="Buscar Productos">
+
+
+
+</form>
+
+
+
+{% endblock %}

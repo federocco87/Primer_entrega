@@ -6,14 +6,10 @@ class Familiar(models.Model):
     edad = models.IntegerField()
     fnac = models.DateField()
 
-
 class Productos(models.Model):
     nombre = models.CharField(max_length=50)
     codigo = models.IntegerField()
     categoria = models.CharField(max_length=30)
-
-    def __str__(self):
-        return f"{self.nombre} - {str(self.codigo) - {self.categoria}}"
         
 class Sucursales(models.Model):
     nombre = models.CharField(max_length=50)

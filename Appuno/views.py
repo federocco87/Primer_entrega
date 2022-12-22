@@ -55,6 +55,17 @@ def sucursalesFormulario(request):
         return render (request,"sucursalesFormulario.html",{"form": formulario})
 
 
+def busquedaProductos(request):
+    return render(request, "busquedaProductos.html")
+
+def buscar(request):
+    prod = request.GET["codigo"]
+    print(prod)
+    if prod!= "":
+        productos=Productos.objects.filter(codigo=prod)
+        return render(request,"resultadosBusqueda.html",{"producto":productos})
+    else:
+        return render(request,"busquedaProductos.html",{"mensaje": "ingrese un producto"})
 
 
     

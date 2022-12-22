@@ -1,0 +1,21 @@
+{% extends "padre.html" %}
+
+{% load static %}
+
+{% block titulo %}
+<h1 class="mb-5"> Resultado de la busqueda</h1>
+
+{% endblock %}
+
+{% block contenido_que_cambia %}
+<h3> {{ mensaje }} </h3>
+
+<h2>Listado de Productos</h2>
+
+{% for productos in producto %}
+
+<h3>{{ productos.nombre }} - {{ productos.categoria }} - {{ productos.codigo }}</h3>
+
+{% endfor %}
+
+{% endblock %}
