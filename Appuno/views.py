@@ -3,21 +3,10 @@ from django.http import HttpResponse
 from .models import *
 from Appuno.forms import *
 
-
 def inicio(request):
-    return HttpResponse()
+    return render (request, "inicio.html")
 
 # Create your views here.
-def familiar(request):
-    familiar1 = Familiar(nombre= "Federico", edad= 35, fnac = "1987-09-10")
-    familiar1.save()
-    familiar2 = Familiar(nombre= "Matias", edad= 32, fnac="1990-12-11")
-    familiar2.save()
-    familiar3 = Familiar(nombre= "Martin", edad= 30, fnac = "1992-02-23")
-    familiar3.save()
-    
-    return render(request, "familiares.html", {"familiares" : [familiar1, familiar2, familiar3]})
-
 def productosFormulario(request):
     if request.method == "POST":
         form= ProdForm(request.POST)
@@ -28,7 +17,7 @@ def productosFormulario(request):
             categoria=informacion["categoria"]
             prod = Productos(nombre= nombre, codigo= codigo, categoria= categoria)
             prod.save()
-            return render (request,"inicio.html",{"mensaje": "Producto Guardado"})
+            return render (request,"productosFormulario.html",{"mensaje": "Producto Guardado"})
         else:
             return render (request,"productosFormulario.html",{"form": formulario, "mensaje": "informacion no valida"})
 
@@ -67,6 +56,23 @@ def buscar(request):
     else:
         return render(request,"busquedaProductos.html",{"mensaje": "ingrese un producto"})
 
+def empleadosFormulario(request):
+    if request.method == "POST":
+        form= EmpForm(request.POST)
+        if form.is_valid():
+            informacion = form.cleaned_data
+            nombre= informacion["nombre"]
+            edad= informacion["edad"]
+            categoria=informacion["catwgoria"]
+            emp = Sucursales(nombre= nombre, edad= edad, categoria= categoria)
+            emp.save()
+            return render (request,"empleadosFormulario.html",{"mensaje": "Empleado Guardada"})
+        else:
+            return render (request,"empleadosFormulario.html",{"form": formulario, "mensaje": "informacion no valida"})
+
+    else:
+        formulario = EmpForm()
+        return render (request,"empleadosFormulario.html",{"form": formulario})
 
     
 

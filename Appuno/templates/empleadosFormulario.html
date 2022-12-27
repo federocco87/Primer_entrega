@@ -3,7 +3,7 @@
 {% load static %}
 
 {% block titulo %}
-<h1> Formulario de Sucursales</h1>
+<h1> Formulario de Empleados</h1>
 
 {% endblock %}
 
@@ -11,7 +11,7 @@
 
 <h3> {{ mensaje }} </h3>
 
-<form action="{% url 'sucursalesFormulario' %}" method="POST"> {% csrf_token %}
+<form action="{% url 'empleadosFormulario' %}" method="POST"> {% csrf_token %}
     <table>
 
         {{ form.as_table }}
@@ -19,7 +19,7 @@
     </table>
 
 
-    <input type="submit" value="Guardar Sucursal">
+    <input type="submit" value="Guardar Empleado">
 
 
 

@@ -1,5 +1,10 @@
 from django import forms
 
+class EmpForm(forms.Form):
+    
+    nombre = forms.CharField(label="Nombre", max_length=50)
+    edad = forms.IntegerField(label="Edad")
+    categoria = forms.CharField(label="Categoria", max_length=30)
 
 class ProdForm(forms.Form):
     
